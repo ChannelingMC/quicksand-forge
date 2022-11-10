@@ -13,11 +13,10 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegisterEvent;
 
 import java.util.List;
 
@@ -25,8 +24,8 @@ import java.util.List;
 public class QuicksandFeatures {
     
     @SubscribeEvent
-    public static void register(RegisterEvent event) {
-        event.register(ForgeRegistries.Keys.FEATURES, QuicksandAPI.QUICKSAND_LAKE.getId(), QuicksandLakeFeature::new);
+    public static void register(RegistryEvent.Register<Feature<?>> event) {
+        event.getRegistry().register(new QuicksandLakeFeature().setRegistryName(QuicksandAPI.QUICKSAND_LAKE.getId()));
     }
     
     @SubscribeEvent

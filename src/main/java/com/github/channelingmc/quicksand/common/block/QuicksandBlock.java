@@ -12,7 +12,6 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -33,12 +32,13 @@ import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ViewportEvent;
+import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Optional;
+import java.util.Random;
 import java.util.function.Supplier;
 
 @MethodsReturnNonnullByDefault
@@ -57,7 +57,7 @@ public class QuicksandBlock extends SandBlock implements BucketPickup {
 	}
 	
 	@SubscribeEvent
-	public static void fogColor(ViewportEvent.ComputeFogColor event) {
+	public static void fogColor(EntityViewRenderEvent.FogColors event) {
 	    int color = ((QuicksandFogCamera)event.getCamera()).getQuicksandFogColor();
 	    if (color > -1) {
 	        event.setRed(((color & 0xFF0000) >> 16) / 255F);
@@ -68,7 +68,7 @@ public class QuicksandBlock extends SandBlock implements BucketPickup {
 	
 	public static void spawnParticles(Level world, BlockState state, Vec3 pos) {
 		if (world.isClientSide) {
-			RandomSource random = world.getRandom();
+			Random random = world.getRandom();
 			
 			for (int i = 0; i < random.nextInt(3); ++i) {
 				world.addParticle(new BlockParticleOption(ParticleTypes.FALLING_DUST, state), pos.x+(Mth.randomBetween(random, -1.0f, 1.0f)), pos.y+(Mth.randomBetween(random, -1.0f, 1.0f)), pos.z+(Mth.randomBetween(random, -1.0f, 1.0f)), (-1.0F + random.nextFloat() * 2.0F) / 12.0F, 0.05, (-1.0F + random.nextFloat() * 2.0F) / 12.0F);

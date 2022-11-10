@@ -5,7 +5,6 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,6 +15,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.material.Material;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Random;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -36,7 +36,7 @@ public class QuicksandLakeFeature extends Feature<QuicksandLakeFeature.Configura
     public boolean place(FeaturePlaceContext<Configuration> context) {
         BlockPos pos = context.origin();
         WorldGenLevel worldgenlevel = context.level();
-        RandomSource randomsource = context.random();
+        Random randomsource = context.random();
         Configuration config = context.config();
         if (pos.getY() <= worldgenlevel.getMinBuildHeight() + 4) {
             return false;

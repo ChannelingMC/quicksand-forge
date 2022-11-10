@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[43,)"
+loaderVersion="[40,)"
 license="LGPLv3"
 issueTrackerURL="https://github.com/ChannelingMC/quicksand-forge/issues/"
 
@@ -14,16 +14,16 @@ issueTrackerURL="https://github.com/ChannelingMC/quicksand-forge/issues/"
     authors="LimonBlaze"
     description="Adds Quicksand. That's it."
 
-[[dependencies.create_enchantment_industry]]
+[[dependencies.quicksand]]
     modId="forge"
     mandatory=true
-    versionRange="[43.1,)"
+    versionRange="[40.1.60,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.create_enchantment_industry]]
+[[dependencies.quicksand]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.2,1.20)"
+    versionRange="[1.18.2,1.19)"
     ordering="NONE"
     side="BOTH"

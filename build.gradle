@@ -104,9 +104,8 @@ dependencies {
 		jarJar.pin(it, project.mixin_extras_version)
 	}
 
-	compileOnly fg.deobf("mezz.jei:jei-${jei_minecraft_version}-common-api:${jei_version}")
-	compileOnly fg.deobf("mezz.jei:jei-${jei_minecraft_version}-forge-api:${jei_version}")
-	runtimeOnly fg.deobf("mezz.jei:jei-${jei_minecraft_version}-forge:${jei_version}")
+	compileOnly fg.deobf("mezz.jei:jei-${jei_minecraft_version}:${jei_version}:api")
+	implementation fg.deobf("mezz.jei:jei-${jei_minecraft_version}:${jei_version}")
 
 	library "com.github.LlamaLad7:MixinExtras:${mixin_extras_version}"
 	annotationProcessor "com.github.LlamaLad7:MixinExtras:${mixin_extras_version}"
