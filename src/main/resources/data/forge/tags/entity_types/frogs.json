@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "minecraft:frog",
     {
       "id": "alexsmobs:rain_frog",
       "required": false

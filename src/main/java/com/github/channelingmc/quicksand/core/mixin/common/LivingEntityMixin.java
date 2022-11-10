@@ -38,12 +38,12 @@ public abstract class LivingEntityMixin extends Entity implements QuicksandSubme
 		return original;
 	}
 	
-	@ModifyExpressionValue(method = "baseTick", at = @At(value = "INVOKE", target = "Lnet/minecraftforge/fluids/FluidType;isAir()Z", remap = false))
+	@ModifyExpressionValue(method = "baseTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;isEyeInFluid(Lnet/minecraft/tags/TagKey;)Z"))
 	private boolean baseTick$checkSubmergedInQuicksand(boolean original) {
 		return original && !this.isSubmergedInQuicksand();
 	}
 	
-	@ModifyExpressionValue(method = "baseTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;canDrownInFluidType(Lnet/minecraftforge/fluids/FluidType;)Z", remap = false))
+	@ModifyExpressionValue(method = "baseTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;canBreatheUnderwater()Z"))
 	private boolean baseTick$checkDrownInQuicksand(boolean original) {
 		return original || (
 			this.isSubmergedInQuicksand() &&
