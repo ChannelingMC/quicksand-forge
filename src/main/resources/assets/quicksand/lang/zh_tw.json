@@ -1,0 +1,11 @@
+{
+  "block.quicksand.quicksand": "流沙",
+  "item.quicksand.quicksand_bucket": "流沙桶",
+  "block.quicksand.quicksand_cauldron": "裝有流沙的煉藥鍋",
+  "block.quicksand.red_quicksand": "紅流沙",
+  "item.quicksand.red_quicksand_bucket": "紅流沙桶",
+  "block.quicksand.red_quicksand_cauldron": "裝有紅流沙的煉藥鍋",
+  "death.attack.quicksand": "%1$s被流沙淹沒",
+  "subtitles.entity.zombie.converted_to_husk": "殭屍：轉化為屍殼",
+  "subtitles.entity.drowned.converted_to_zombie": "沉屍：轉化為殭屍"
+}
